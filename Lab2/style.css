@@ -1,3 +1,72 @@
 body {
-    background-color: red;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    width: 1300px;
+    height: 400px;
 }
+
+
+h1 {
+    font-size: 50px;
+}
+
+h4 {
+    font-size: 30px;
+}
+
+header {
+    position: fixed;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 0;
+    height: 100px;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 10px 2px #aaa;
+    padding: 120px, 20px, 120px, 20px;
+    z-index: 100;
+}
+
+.buttonOneFont {
+    color: green;
+}
+
+article, section {
+    display: flex;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 20px;
+}
+
+article {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 150px, 120px;
+    float: left;
+}
+
+.article-element {
+    width: 50%;
+}
+
+footer {
+    text-align: center;
+}
+
+.picture::before {
+    content: "Przed";
+}
+
+.picture::after {
+    content: "Po";
+    color: red;
+}
+

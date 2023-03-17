@@ -3,22 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <title>Moja strona</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Hej świat!</h1>
         <p>Witam mam na imię <b>Jakub Tokarski</b> lubię programować w języku <i>Java</i> i <i>css</i>.</p>
         <h2>Hobby: </h2> <p>w wolnych chwilach gram na keybordzie chodzę na siłownię i jestem aktywny społecznie w grach komputerowych</p>
-        <hr>
-        <a href="Index.html"><button class = "buttonOneFont">Strona główna</button></a><br>
-        <a href="Page1.html"><button>Ulubione seriale</button></a><br>
-        <a href="Page2.html"><button>Ulubione książki</button></a>
     </header>
+    <hr>
+    <a href="Index.html"><button>Strona 1</button></a><br>
+    <a href="Page1.html"><button>Strona 2</button></a><br>
+    <a href="Page2.html"><button>Strona 3</button></a>
     <hr>
     <p>5 powodów dla których lubię factorio:</p>
     <section>
-        <article class="article-element">
+        <article>
             <ol>
                 <li>Gra na tysiące godzin (nie nudzi się)</li>
                 <li>Opiera się na logistyce</li>
@@ -28,7 +27,8 @@
                 <li>Gra tak dobra, że tu jest link: <a href="https://factorio.com/">Factorio</a></li>
             </ol>
         </article>
-        <article class="article-element">
+        <hr>
+        <article>
             <p>co oznacza PTSD</p>
             <ul>
                 <li>P: Post</li>
@@ -38,7 +38,6 @@
                 <li>Link: <a href="https://pl.wikipedia.org/wiki/Zesp%C3%B3%C5%82_stresu_pourazowego">PTSD</a></li>
             </ul>
         </article>
-        <img src="main.jpg" class="picture">
     </section>
     <hr>
     <table>
@@ -86,33 +85,74 @@
     <footer>
         <img src="https://a.allegroimg.com/original/118d07/050916b84f6d9d9f752bb3497d9b/FACTORIO-STEAM-PC">
     </footer>
-    <form action = "script.php" method="POST">
-        <div class="lewa">
-            ocena:<br><br>
-            komentarz:<br><br>
-            czy się podobało: <br>
-            Tak <input type="radio" name="ocena"><br>
-            Nie <input type="radio" name="ocena">
-        </div>
-         <div class="prawa">
-            <input type="number" style="height: 25px; width: 100px;"><br>
-            <textarea style="height: 25px; width: 100px" ></textarea><br>
-         </div>
-        
-    </form>
     <style>
         table, td, th {
             border: 1px solid black;
             border-collapse: collapse;
         }
-        .lewa {
-            width: 5%;
-            float: left;
-        }
-        .prawa {
-            width: 5%;
-            float: left;
-        }
+
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    width: 1300px;
+    height: 400px;
+}
+
+
+h1 {
+    font-size: 50px;
+}
+
+h4 {
+    font-size: 30px;
+}
+
+header {
+    position: fixed;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 0;
+    height: 100px;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 10px 2px #aaa;
+    padding: 120px, 20px, 120px, 20px;
+    z-index: 100;
+}
+
+.buttonOneFont {
+    color: green;
+}
+
+article, section {
+    display: flex;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 20px;
+}
+
+article {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 150px, 120px;
+    float: left;
+}
+
+.article-element {
+    width: 50%;
+}
+
+footer {
+    text-align: center;
+}
     </style>
 </body>
 </html>
