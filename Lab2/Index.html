@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <title>My Website</title>
+  <!-- Odnośnik do css zad 5 -->
+  <link rel="stylesheet" href="style.css">
  </head>
 
 <body>
@@ -14,17 +16,17 @@
       </div>
     </div>
     <nav>
-      <ul>
-        <li>
-          <a href="./index.html">Strona główna</a>
+      <ul id = hlist2>
+        <li id = "hlist">
+          <a href="./index.html" style = "color: green">Strona główna</a>
         </li>
-        <li><a href="./seriale/index.html">Ulubione seriale</a></li>
-        <li><a href="./ksiazki/index.html">Ulubione książki</a></li>
+        <li id = "hlist"><a href="./seriale/index.html">Ulubione seriale</a></li>
+        <li id = "hlist"><a href="./ksiazki/index.html">Ulubione książki</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
+  <main id = "spacer">
     <section>
       <div>
         <h1>
@@ -36,7 +38,7 @@
       </div>
 
     </section>
-    <article>
+    <article class="article-element">
       <h4>Kilka słów o mnie</h4>
 
       <p>
@@ -51,7 +53,7 @@
     <!-- Proszę skierować studentów na stronę:
     https://devdocs.io/html/element/ul
     tam znajduje się przykład zagnieżdżania list-->
-    <article>
+    <article class = "article-element">
       <h4>Moje ulubione seriale</h4>
       <ul>
         <li>Gra o tron</li>
@@ -60,7 +62,7 @@
       </ul>
     </article>
 
-    <article>
+    <article class="article-element">
       <h4>
         Ranking najlepszych powieści kryminalnych
       </h4>
@@ -72,7 +74,7 @@
     </article>
 
     <!-- ZADANIE 3 -->
-    <article>
+    <article class="article-element">
       <h4>Moje ulubione seriale</h4>
       <ul>
         <li>
@@ -93,7 +95,7 @@
 
     <!-- ZADANIE 4 -->
     <!-- Pytanie do studentów: Jak sprawić aby tablica posiadała ramki?-->
-    <article>
+    <article class="article-element">
       <h4>Moje ścieżka nauki</h4>
 
       <table>
@@ -117,7 +119,7 @@
     </article>
 
     <!--    ZADANIE 4.1 -->
-    <article>
+    <article class="article-element">
       <h4>Pusta tabelka</h4>
       <table>
         <tr>
@@ -145,7 +147,7 @@
       </table>
     </article>
     <!-- ZADANIE 5 -->
-    <article>
+    <article class="article-element">
       <div>
         <h4>Moje ulubione seriale</h4>
 
@@ -171,7 +173,7 @@
     </article>
   </main>
 
-  <article>
+  <article class="article-element">
     <h4>Moje ulubione seriale</h4>
     <div>
       <!-- ZADANIE 8 -->

@@ -1,0 +1,83 @@
+/* Zad 1 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+/* Zad 2 */
+* {
+    box-sizing: border-box;
+}
+
+section, div, article, header, article, aside, footer {
+    display: flex;
+}
+
+/* Zad 3 */
+header {
+    position: fixed;
+    width: 100%;
+    background-color: lightgray;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 0 10px 2px #aaa;
+    padding: 20px 120px;
+    z-index: 100;
+}
+
+/* Zad 4 */
+#hlist2 {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+
+#hlist {
+    display: inline;
+    float: left;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+
+h2 {
+    color: blue;
+}
+
+
+#spacer {
+    padding-top: 230px;
+}
+
+/* Zad 6 */
+article, section {
+    display: block;
+    margin: 0px 120px 0px 120px;
+    font-size: 20px;
+}
+
+/* Zad 7 */
+article {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    pad: 150px 120px;
+}
+
+/* Zad 8 */
+.article-element {
+    width: 50%;
+    float: left;
+}
