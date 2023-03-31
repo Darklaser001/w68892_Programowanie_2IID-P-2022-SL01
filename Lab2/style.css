@@ -81,3 +81,15 @@ article {
     width: 50%;
     float: left;
 }
+
+/* Zad 9 */
+footer {
+    clear: both;
+    justify-content: center;
+}
+
+/* Zad 12 */
+h4::after {
+    text-decoration: underline;
+    text-decoration-color: green;
+}
