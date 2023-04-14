@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            //Zad 1
+            let age = prompt("Podaj ile masz lat: ");
+            if(age < 18) {
+                alert("Jesteś niepełnoletni!");
+            }
+            else {
+                alert("Jesteś pełnoletni")
+            }
+
+            //Zad 2
+            let temperature = prompt("Podaj ilość stopni w Fahrenheitach: ");
+            temperature = temperature * 1.8 + 32;
+            console.log(temperature);
+
+
+            //Zad 3
+            let taskTable = [1,2,3];
+            let evenTaskTable = [];
+            let sumTaskTable = 0;
+            let choosen = prompt("Podaj liczbę do zliczenia jej częstotliwości: ");
+            let howOften = 0;
+            taskTable.forEach(element => {
+                sumTaskTable += element;
+                if(element % 2 == 0) {
+                    evenTaskTable.push(element);
+                }
+                if(element == choosen) {
+                    howOften++;
+                }
+            });
+            let average = 0;
+            for(let i = 0; i < taskTable.length; i++) {
+                taskTable[i] = taskTable[i] * 3;
+                average += taskTable[i];
+                if(i == taskTable.length - 1) {
+                    average = average / i;
+                }
+            }
+            taskTable.push(68892);
+
+            
+
+            console.log("Suma: ", sumTaskTable);
+            console.log("Parzyste elementy: ", evenTaskTable);
+            console.log("Index mojego numeru albumu to: ", taskTable.find(element => element = 68892));
+            console.log("Średnia arytmetyczna wynosi: ", average);
+            console.log("Maksimum z tabicy to: ", Math.max(taskTable));
+            console.log("Twoja liczba wystąpiła: ", howOften);
+
+
+            //Zad 4
+            let first = 1;
+            let second = 1;
+            let helper = 0;
+            let fibonnaciList = [1, 1];
+            while(fibonnaciList.length < 100) {
+                helper = first + second;
+                second = first;
+                first = helper;
+                fibonnaciList.push(helper);
+            }
+
+            console.log(fibonnaciList);
+
+        </script>
+    </body>
+</html>
