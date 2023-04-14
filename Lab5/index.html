@@ -26,6 +26,7 @@
             let sumTaskTable = 0;
             let choosen = prompt("Podaj liczbę do zliczenia jej częstotliwości: ");
             let howOften = 0;
+            let max = taskTable[0];
             taskTable.forEach(element => {
                 sumTaskTable += element;
                 if(element % 2 == 0) {
@@ -33,6 +34,9 @@
                 }
                 if(element == choosen) {
                     howOften++;
+                }
+                if(element > max) {
+                    max = element;
                 }
             });
             let average = 0;
@@ -51,7 +55,7 @@
             console.log("Parzyste elementy: ", evenTaskTable);
             console.log("Index mojego numeru albumu to: ", taskTable.find(element => element = 68892));
             console.log("Średnia arytmetyczna wynosi: ", average);
-            console.log("Maksimum z tabicy to: ", Math.max(taskTable));
+            console.log("Maksimum z tabicy to: ", max);
             console.log("Twoja liczba wystąpiła: ", howOften);
 
 
