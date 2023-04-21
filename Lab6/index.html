@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        Zad 1: Podaj liczbę do obliczenia silni: <input type="number" id="one"><br>
+        Wynik: <span id="oneResult"></span><br>
+        <button onclick="taskOne(one.value)">Oblicz</button>
+
+        <br><br>
+        Zad 2:<br>
+        <input type="button" onclick="taskTwoOne()" id="butOne" value="Red"><input type="button" onclick="taskTwoTwo()" id="butTwo" value="Green"><input type="button" onclick="taskTwoThree()" id="butThree" value="Blue">
+
+        <br><br>
+        Zad 3:<br>
+        <button onclick="taskThree()">Zniknij input z zad 1</button>  
+
+        <br><br>
+        Zad 4:<br>
+        <input type="text" value="tekst" id="adder">
+        <button onclick="taskFour()">Dodaj do listy</button>
+        <ol id="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+
+        <br><br>
+        Zad 5:<br>
+        imie:<input type="text" value="imie" id="name"><br>
+        nazwisko:<input type="text" value="nazwisko" id="surname"><br>
+        <button onclick="taskFive()">Dodaj</button>
+        <table style="border: 1px solid black" id="taskFive">
+            <th>
+                <td>Imie</td>
+                <td>Nazwisko</td>
+            </th>
+        </table>
+
+
+
+        <script>
+                document.getElementById("butOne").style.backgroundColor = "transparent";
+                document.getElementById("butTwo").style.backgroundColor = "transparent";
+                document.getElementById("butThree").style.backgroundColor = "transparent";
+            //Zad 1
+            function taskOne(number) {
+                document.getElementById("oneResult").innerHTML = silnia(number);
+            }
+
+            function silnia(number) {
+                if(number > 1) {
+                    return number * silnia(number - 1);
+                } else {
+                    return 1;   
+                }
+            }
+            
+            //Zad 2
+            function taskTwoOne() {
+                document.getElementById("butOne").style.backgroundColor = "Red";
+                document.getElementById("butTwo").style.backgroundColor = "transparent";
+                document.getElementById("butThree").style.backgroundColor = "transparent";
+            }
+            function taskTwoTwo() {
+                document.getElementById("butOne").style.backgroundColor = "transparent";
+                document.getElementById("butTwo").style.backgroundColor = "Green";
+                document.getElementById("butThree").style.backgroundColor = "transparent";
+            }
+            function taskTwoThree() {
+                document.getElementById("butOne").style.backgroundColor = "transparent";
+                document.getElementById("butTwo").style.backgroundColor = "transparent";
+                document.getElementById("butThree").style.backgroundColor = "Blue";
+            }
+
+            //Zad 3
+            function taskThree() {
+                document.getElementById("one").style.opacity = 0;
+            }
+
+            //Zad 4
+            function taskFour() {
+                //document.querySelector('li').appendChild(document.createElement('li').textContent(document.getElementById("adder").value))
+                const li1 = document.createElement('li');
+                li1.textContent = document.getElementById("adder").value;
+                document.getElementById("list").appendChild(li1);
+            }
+
+            //Zad 5
+            function taskFive() {
+                const table2 = document.getElementById("taskFive");
+                const newRow = table2.insertRow();
+                var newCell = newRow.insertCell();
+                newCell.textContent = document.getElementById("name").value;
+                newCell = newRow.insertCell();
+                newCell.textContent = document.getElementById("surname").value;
+
+                document.getElementById("name").value = "";
+                document.getElementById("surname").value = "";
+
+            }
+
+        </script>
+    </body>
+</html>
