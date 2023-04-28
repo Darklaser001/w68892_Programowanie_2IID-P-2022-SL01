@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form id="form" >
+            Imie: <input type="text" id="name"><br>
+            Nazisko: <input type="text" id="surname"><br>
+            Email: <input type="text" id="email"><br>
+            Hasło: <input type="password" id="passwor"><br>
+            Płeć: <input type="text" id="sex"><br>
+            Telefon: <input type="number" id="phone"><br>
+            Data urodzenia: <input type="date" id="birthday"><br>
+            Kraj: <input type="text" id="country"><br>
+            <button type="submit">Zapisz</button>
+        </form>
+        <script>
+            const form = document.querySelector('form');
+
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+                
+
+
+                form.reset();
+            })
+            
+        </script>
+    </body>
+</html>
