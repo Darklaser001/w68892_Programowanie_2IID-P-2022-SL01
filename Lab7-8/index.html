@@ -4,17 +4,27 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <form id="form" >
-            Imie: <input type="text" id="name"><br>
-            Nazisko: <input type="text" id="surname"><br>
-            Email: <input type="text" id="email"><br>
-            Hasło: <input type="password" id="passwor"><br>
-            Płeć: <input type="text" id="sex"><br>
-            Telefon: <input type="number" id="phone"><br>
-            Data urodzenia: <input type="date" id="birthday"><br>
-            Kraj: <input type="text" id="country"><br>
+        <form id="form" novalidate>
+            Imie:<br> <input type="text" id="name"><br>
+            Nazisko:<br> <input type="text" id="surname"><br>
+            Email:<br> <input type="text" id="email"><br>
+            Hasło:<br> <input type="password" id="passwor"><br>
+            Płeć:<br> M<input type="radio" id="m" name="sex" value="m" required> K<input type="radio" id="k" name="sex" value="k" required><br>
+            Telefon:<br> <input type="number" id="phone"><br>
+            Data urodzenia:<br> <input type="date" id="birthday"><br>
+            Kraj:<br> <input type="text" id="country"><br>
             <button type="submit">Zapisz</button>
         </form>
+        <style>
+            body {
+                text-align: center;
+            }
+            
+            input {
+                border-radius: 20px 100%;
+            }
+
+        </style>
         <script>
             // funkcja sprawdzająca czy pole posiada wartość
             function validateRequiredField(fieldValue) {
@@ -36,7 +46,7 @@
 
             // funkcja sprawdzająca poprawność adresu email
             function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailRegex = /[a-zA-Z]+.{5,}@[a-zA-Z]+.{2,}\.[a-zA-Z]{2,5}/;
             return emailRegex.test(email);
             }
 
@@ -51,72 +61,89 @@
             event.preventDefault(); // zatrzymuje standardową akcję submitowania formularza
 
             // pobieranie wartości pól formularza
-            const name = document.getElementById('name').value;
-            const surname = document.getElementById('surname').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const sex = document.getElementById('sex').value;
-            const phone = document.getElementById('phone').value;
-            const birthday = document.getElementById('birthday').value;
-            const country = document.getElementById('country').value;
+            let name = document.getElementById('name');
+            let surname = document.getElementById('surname');
+            let email = document.getElementById('email');
+            let password = document.getElementById('password');
+            let sex = document.getElementById('sex');
+            let phone = document.getElementById('phone');
+            let birthday = document.getElementById('birthday');
+            let country = document.getElementById('country');
+
+            let correctForm = true;
 
             // walidacja pól formularza
-            if (!validateRequiredField(name)) {
-                alert('Pole Imię jest wymagane!');
+            if (!validateRequiredField(name.value)) {
+                name.setCustomValidity("Uzupełnij polę Imię");
+                name.reportValidity('');
+                correctForm = false;
                 return;
             }
 
-            if (!validateRequiredField(surname)) {
+            if (!validateRequiredField(surname.value)) {
                 alert('Pole Nazwisko jest wymagane!');
+                correctForm = false;
                 return;
             }
 
-            if (!validateRequiredField(email)) {
+            if (!validateRequiredField(email.value)) {
                 alert('Pole Email jest wymagane!');
+                correctForm = false;
                 return;
             }
 
-            if (!validateEmail(email)) {
+            if (!validateEmail(email.value)) {
                 alert('Podaj poprawny adres email!');
+                correctForm = false;
                 return;
             }
 
-            if (!validateRequiredField(password)) {
+            if (!validateRequiredField(password.value)) {
                 alert('Pole Hasło jest wymagane!');
+                correctForm = false;
                 return;
             }
 
-            if (!validatePassword(password)) {
+            if (!validatePassword(password.value)) {
                 alert('Hasło musi mieć co najmniej 8 znaków, zawierać co najmniej jedną małą literę, jedną wielką literę i jedną cyfrę!');
+                correctForm = false;
                 return;
             }
 
-            if (!validateRequiredField(sex)) {
+            if (!validateRequiredField(sex.value)) {
                 alert('Pole Płeć jest wymagane!');
+                correctForm = false;
                 return;
             }
 
-            if (!validateRequiredField(phone)) {
+            if (!validateRequiredField(phone.value)) {
                 alert('Pole Telefon jest wymagane!');
+                correctForm = false;
                 return;
             }
 
-            if (!validateRequiredField(birthday)) {
+            if (!validateRequiredField(birthday.value)) {
                 alert('Pole Data urodzenia jest wymagane!');
+                correctForm = false;
                 return;
             }
 
-            if (!validateRequiredField(country)) {
+            if (!validateRequiredField(country.value)) {
                 alert('Pole Kraj jest wymagane!');
+                correctForm = false;
                 return;
             }
 
-            // jeśli walidacja się powiodła, można wykonać inne akcje (np. wysłanie formularza)
+            if(correctForm) {
+                alert('Formularz wypełniono poprawnie!')
+            }
+
             }
             
             // podpięcie funkcji validateForm() pod zdarzenie submit formularza
             const form = document.getElementById('form');
             form.addEventListener('submit', validateForm);
+
         </script>
     </body>
 </html>
