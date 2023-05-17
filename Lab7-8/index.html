@@ -6,13 +6,21 @@
     <body>
         <form id="form" novalidate>
             Imie:<br> <input type="text" id="name"><br>
-            Nazisko:<br> <input type="text" id="surname"><br>
+            <span class="error"></span><br>
+            Nazwisko:<br> <input type="text" id="surname"><br>
+            <span class="error"></span><br>
             Email:<br> <input type="text" id="email"><br>
-            Hasło:<br> <input type="password" id="passwor"><br>
-            Płeć:<br> M<input type="radio" id="m" name="sex" value="m" required> K<input type="radio" id="k" name="sex" value="k" required><br>
+            <span class="error"></span><br>
+            Hasło:<br> <input type="password" id="password"><br>
+            <span class="error"></span><br>
+            Płeć:<br> M<input type="radio" id="m" name="sex" value="m" checked> K<input type="radio" id="k" name="sex" value="k"><br>
+            <span class="error"></span><br>
             Telefon:<br> <input type="number" id="phone"><br>
+            <span class="error"></span><br>
             Data urodzenia:<br> <input type="date" id="birthday"><br>
+            <span class="error"></span><br>
             Kraj:<br> <input type="text" id="country"><br>
+            <span class="error"></span><br>
             <button type="submit">Zapisz</button>
         </form>
         <style>
@@ -65,74 +73,119 @@
             let surname = document.getElementById('surname');
             let email = document.getElementById('email');
             let password = document.getElementById('password');
-            let sex = document.getElementById('sex');
+            let sex = "";
+            if (document.getElementById('m').checked) {
+                sex = "m";
+            } else {
+                sex = "k";
+            }
             let phone = document.getElementById('phone');
             let birthday = document.getElementById('birthday');
             let country = document.getElementById('country');
-
             let correctForm = true;
 
             // walidacja pól formularza
             if (!validateRequiredField(name.value)) {
-                name.setCustomValidity("Uzupełnij polę Imię");
-                name.reportValidity('');
+                document.getElementsByClassName("error")[0].innerHTML = "Pole Imię jest wymagane!";
+                // name.setCustomValidity('Uzupełnij polę Imię'); // Wszelkie zakomentowane rzeczy w "if'ach" to zadanie 2
+                // name.reportValidity('');
                 correctForm = false;
                 return;
+            } else {
+                document.getElementsByClassName("error")[0].innerHTML = "";
             }
 
             if (!validateRequiredField(surname.value)) {
-                alert('Pole Nazwisko jest wymagane!');
+                document.getElementsByClassName("error")[1].innerHTML = "Pole Nazwisko jest wymagane!";
+                // surname.setCustomValidity('Pole Nazwisko jest wymagane!');
+                // surname.reportValidity('');
                 correctForm = false;
                 return;
+            } else {
+                document.getElementsByClassName("error")[1].innerHTML = "";
             }
 
             if (!validateRequiredField(email.value)) {
-                alert('Pole Email jest wymagane!');
+                document.getElementsByClassName("error")[2].innerHTML = "Pole Email jest wymagane!";
+                // email.setCustomValidity('Pole Email jest wymagane!');
+                // email.reportValidity('');
                 correctForm = false;
                 return;
+            } else {
+                document.getElementsByClassName("error")[2].innerHTML = "";
             }
 
             if (!validateEmail(email.value)) {
-                alert('Podaj poprawny adres email!');
+                document.getElementsByClassName("error")[2].innerHTML = "Podaj poprawny adres email!";
+                // email.setCustomValidity('Podaj poprawny adres email!');
+                // email.reportValidity('');
                 correctForm = false;
                 return;
+            } else {
+                document.getElementsByClassName("error")[2].innerHTML = "";
             }
 
             if (!validateRequiredField(password.value)) {
-                alert('Pole Hasło jest wymagane!');
+                document.getElementsByClassName("error")[3].innerHTML = "Pole Hasło jest wymagane!";
+                // password.setCustomValidity('Pole Hasło jest wymagane!');
+                // password.reportValidity('');
                 correctForm = false;
                 return;
+            } else {
+                document.getElementsByClassName("error")[3].innerHTML = "";
             }
 
             if (!validatePassword(password.value)) {
-                alert('Hasło musi mieć co najmniej 8 znaków, zawierać co najmniej jedną małą literę, jedną wielką literę i jedną cyfrę!');
+                document.getElementsByClassName("error")[3].innerHTML = "Hasło musi mieć co najmniej 8 znaków, zawierać co najmniej jedną małą literę, jedną wielką literę i jedną cyfrę!";
+                // password.setCustomValidity('Hasło musi mieć co najmniej 8 znaków, zawierać co najmniej jedną małą literę, jedną wielką literę i jedną cyfrę!');
+                // password.reportValidity('');
                 correctForm = false;
                 return;
+            } else {
+                document.getElementsByClassName("error")[3].innerHTML = "";
             }
 
-            if (!validateRequiredField(sex.value)) {
-                alert('Pole Płeć jest wymagane!');
+            if (!validateRequiredField(sex)) {
+                document.getElementsByClassName("error")[4].innerHTML = "Pole Płeć jest wymagane!";
+                // sex.setCustomValidity('Pole Płeć jest wymagane!');
+                // sex.reportValidity('');
                 correctForm = false;
                 return;
+            } else {
+                document.getElementsByClassName("error")[4].innerHTML = "";
             }
 
             if (!validateRequiredField(phone.value)) {
-                alert('Pole Telefon jest wymagane!');
+                document.getElementsByClassName("error")[5].innerHTML = "Pole Telefon jest wymagane!";
+                // phone.setCustomValidity('Pole Telefon jest wymagane!');
+                // phone.reportValidity('');
                 correctForm = false;
                 return;
+            } else {
+                document.getElementsByClassName("error")[5].innerHTML = "";
             }
 
             if (!validateRequiredField(birthday.value)) {
-                alert('Pole Data urodzenia jest wymagane!');
+                document.getElementsByClassName("error")[6].innerHTML = "Pole Data urodzenia jest wymagane!";
+                // birthday.setCustomValidity('Pole Data urodzenia jest wymagane!');
+                // birthday.reportValidity('');
                 correctForm = false;
                 return;
+            } else {
+                document.getElementsByClassName("error")[6].innerHTML = "";
             }
 
             if (!validateRequiredField(country.value)) {
-                alert('Pole Kraj jest wymagane!');
+                document.getElementsByClassName("error")[7].innerHTML = "Pole Kraj jest wymagane!";
+                // country.setCustomValidity('Pole Kraj jest wymagane!');
+                // country.reportValidity('');
                 correctForm = false;
                 return;
+            } else {
+                document.getElementsByClassName("error")[7].innerHTML = "";
             }
+
+            console.log(2023 - parseInt(document.getElementById("birthday").value.substring(0,4)));
 
             if(correctForm) {
                 alert('Formularz wypełniono poprawnie!')
