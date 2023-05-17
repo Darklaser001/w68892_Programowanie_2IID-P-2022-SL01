@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <input type="button" onclick="taskTwoOne()" id="butOne" value="Red">
+        <input type="button" onclick="taskTwoTwo()" id="butTwo" value="Green">
+        <input type="button" onclick="taskTwoThree()" id="butThree" value="Blue">
+        <br>
+        <br>
+        <form id = "form">
+            <!-- Testowo w html -->
+            <!-- <label>Imię</label>
+            <input type="text" id="name" minlength="3" maxlength="20" title="Must be between 3 and 20 characters long" required><br>
+            <label>Nazwisko</label>
+            <input type="text" id="surname" minlength="3" maxlength="20" title="Must be between 3 and 20 characters long" required><br>
+            <label>Email</label>
+            <input type="email" id="email" pattern="[a-zA-Z]+.{5,}@[a-zA-Z]+.{2,}\.[a-zA-Z]{2,5}" size="30" title="Must be valid email" required><br>
+            <label>Hasło</label>
+            <input type="password" id="password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+            <label>Powtórz Hasło</label>
+            <input type="password" id="passwordRepeat" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+            <label>Przycisk zapisz</label>
+            <input type="submit"> -->
+
+            Ten formularz działa z validacją w trakcie pisania. Testowany działa. Aby wyłaczyć ciągłe alerty trzeba usunąć "onkeyup" z każdego inputa.<br><br>
+
+            <label>Imię</label>
+            <input type="text" id="name" onkeyup="tester()" required><br>
+            <label>Nazwisko</label>
+            <input type="text" id="surname" onkeyup="tester()" required><br>
+            <label>Email</label>
+            <input type="email" id="email" onkeyup="tester()" required><br>
+            <label>Hasło</label>
+            <input type="password" id="password" onkeyup="tester()" required><br>
+            <label>Powtórz Hasło</label>
+            <input type="password" id="passwordRepeat" onkeyup="tester()" required><br>
+            <label>Przycisk zapisz</label>
+            <input type="submit">
+        </form>
+
+        <br><br>
+        <label>Imie</label>
+        <input type="text" id="name2"><br>
+        <label>Nazwisko</label>
+        <input type="text" id="surname2"><br>
+        <button onclick="zad3()">Dodaj</button><br><br>
+        <table style="border: 1px solid black" id="zad3">
+            <th>
+                <td>Imie</td>
+                <td>Nazwisko</td>
+            </th>
+        </table>
+
+
+
+        <script>
+            // Zad 1
+            document.getElementById("butOne").style.backgroundColor = "transparent";
+            document.getElementById("butTwo").style.backgroundColor = "transparent";
+            document.getElementById("butThree").style.backgroundColor = "transparent";
+
+            function taskTwoOne() {
+                document.getElementById("butOne").style.backgroundColor = "Red";
+                document.getElementById("butTwo").style.backgroundColor = "transparent";
+                document.getElementById("butThree").style.backgroundColor = "transparent";
+            }
+            function taskTwoTwo() {
+                document.getElementById("butOne").style.backgroundColor = "transparent";
+                document.getElementById("butTwo").style.backgroundColor = "Green";
+                document.getElementById("butThree").style.backgroundColor = "transparent";
+            }
+            function taskTwoThree() {
+                document.getElementById("butOne").style.backgroundColor = "transparent";
+                document.getElementById("butTwo").style.backgroundColor = "transparent";
+                document.getElementById("butThree").style.backgroundColor = "Blue";
+            }
+
+            // Zad 2
+
+            // funkcja sprawdzająca poprawność adresu email
+            function validateEmail(email) {
+            const emailRegex = /[a-zA-Z]+.{5,}@[a-zA-Z]+.{2,}\.[a-zA-Z]{2,5}/;
+            return emailRegex.test(email);
+            }
+
+            // funkcja sprawdzająca trudność hasła
+            function validatePassword(password) {
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+            return passwordRegex.test(password);
+            }
+
+            function validateRequiredField(fieldValue) {
+            if (fieldValue.trim() === '') {
+                return false;
+            } else {
+                return true;
+            }
+            }
+
+            function tester() {
+                // pobieranie wartości pól formularza
+            let name = document.getElementById('name');
+            let surname = document.getElementById('surname');
+            let email = document.getElementById('email');
+            let password = document.getElementById('password');
+            let passwordRepeat = document.getElementById('passwordRepeat');
+
+            let correctForm = true;
+
+            // walidacja pól formularza
+            if (!validateRequiredField(name.value)) {
+                name.setCustomValidity("Uzupełnij polę Imię");
+                name.reportValidity('');
+                correctForm = false;
+                return;
+            }
+
+            if (!validateRequiredField(surname.value)) {
+                alert('Pole Nazwisko jest wymagane!');
+                correctForm = false;
+                return;
+            }
+
+            if (!validateRequiredField(email.value)) {
+                alert('Pole Email jest wymagane!');
+                correctForm = false;
+                return;
+            }
+
+            if (!validateEmail(email.value)) {
+                alert('Podaj poprawny adres email!');
+                correctForm = false;
+                return;
+            }
+
+            if (!validateRequiredField(password.value)) {
+                alert('Pole Hasło jest wymagane!');
+                correctForm = false;
+                return;
+            }
+
+            if (!validatePassword(password.value)) {
+                alert('Hasło musi mieć co najmniej 8 znaków, zawierać co najmniej jedną małą literę, jedną wielką literę i jedną cyfrę!');
+                correctForm = false;
+                return;
+            }
+
+            if(correctForm) {
+                alert('Formularz wypełniono poprawnie!')
+            }
+            }
+
+            // funkcja wywoływana przy submicie formularza
+            function validateForm(event) {
+            event.preventDefault(); // zatrzymuje standardową akcję submitowania formularza
+            tester();
+            }
+
+            // podpięcie funkcji validateForm() pod zdarzenie submit formularza
+            const form = document.getElementById('form');
+            form.addEventListener('submit', validateForm);
+
+            // Zad 3
+
+            class Car{
+                constructor(marka, model, rok_produkcji, kolor, prędkość) {
+                    this.marka = marka;
+                    this.model = model;
+                    this.rok_produkcji = rok_produkcji;
+                    this.kolor = kolor;
+                    this.prędkość = prędkość; 
+                }
+
+                speedUp() {
+                    this.prędkość += parseInt(prompt("O ile zwiększyć prędkosć? "));
+                }
+
+                speedDown() {
+                    this.prędkość -= parseInt(prompt("O ile zmniejszyć prędkosć? "));
+                }
+
+                info() {
+                    console.log(this.marka, this.model, this.rok_produkcji, "kolor:", this.kolor, "prędkość:", this.prędkość);
+                }
+            };
+            
+
+            let car = new Car("fiat", "126p", "1980", "czerwony", 80)
+
+
+            //Zad 4
+            function zad3() {
+                const table2 = document.getElementById("zad3");
+                const newRow = table2.insertRow();
+                var newCell = newRow.insertCell();
+                newCell.textContent = document.getElementById("name2").value;
+                newCell = newRow.insertCell();
+                newCell.textContent = document.getElementById("surname2").value;
+
+                document.getElementById("name2").value = "";
+                document.getElementById("surname2").value = "";
+
+            }
+        </script>
+    </body>
+</html>
